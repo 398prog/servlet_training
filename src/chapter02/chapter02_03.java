@@ -38,9 +38,7 @@ public class chapter02_03 extends HttpServlet {
 		out.println("</head>");
 		out.println("<body>");
 		out.println("<h2>Chapter02_03</h2>");
-		out.println("<p>UTF-8で日本語を出力します。<br>");
-		out.println("MIMEタイプはtext/htmlなので、ブラウザはHTML文書として認識しており、<br>");
-		out.println("&lt;br&gtを使わないと改行できません。</p>");
+		out.println("<p>フォワード後の画面です。</p>");
 		out.println("</body>");
 		out.println("</html>");
 	}

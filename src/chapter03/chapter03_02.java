@@ -1,7 +1,6 @@
-package chapter02;
+package chapter03;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,16 +9,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class chapter02_02
+ * Servlet implementation class chapter03_02
  */
-@WebServlet("/chapter02_04")
-public class chapter02_04 extends HttpServlet {
+@WebServlet("/chapter03_02")
+public class chapter03_02 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public chapter02_04() {
+    public chapter03_02() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -28,15 +27,8 @@ public class chapter02_04 extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.setContentType("text/plain; charset=UTF-8");
-		PrintWriter out = response.getWriter();
-
-
-		out.println("Chapter02_03");
-		out.println("");
-		out.println("UTF-8で日本語を出力します。");
-		out.println("MIMEタイプはtext/plainなので、ブラウザはテキストとして認識しており,");
-		out.println("<br>タグを使わなくても改行されます。");
+		// TODO Auto-generated method stub
+		response.sendRedirect("/servlet_training/html/chapter03_02/02.html");
 
 	}
 
