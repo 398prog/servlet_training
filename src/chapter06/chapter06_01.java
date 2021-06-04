@@ -1,8 +1,7 @@
-package chapter04;
+package chapter06;
 
 import java.io.IOException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,16 +9,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class chapter04_01
+ * Servlet implementation class chapter06_01
  */
-@WebServlet("/chapter04_01")
-public class chapter04_01 extends HttpServlet {
+@WebServlet("/chapter06_01")
+public class chapter06_01 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public chapter04_01() {
+    public chapter06_01() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -28,7 +27,6 @@ public class chapter04_01 extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 
 	}
 
@@ -36,9 +34,19 @@ public class chapter04_01 extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		RequestDispatcher rd = request.getRequestDispatcher("/jsp/chapter04_01/02.jsp");
-		rd.forward(request, response);
+
+		String country = request.getParameter("country");
+		String result;
+
+		if(country.equals("3")) {
+			result="おめでとう、正解です！";
+		}else {
+			result="残念、不正解です。";
+		}
+
+		request.setAttribute("result",result);
+		request.getRequestDispatcher("/jsp/chapter06_01/result.jsp").forward(request, response);
+
 	}
 
 }

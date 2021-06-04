@@ -7,10 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h2>Chapter05_03</h2>
-<p>年齢認証をします。人例を入力してください。</p>
-<form action="<%= request.getContextPath() %>/chapter05_03" method="post" >
-<input type="text" name="age"><br/>
+<h2>Chapter05_04</h2>
+<p><form action="<%= request.getContextPath()%>/chapter05_04" method="post">
+メッセージ:<input type="text" name="message"><br/>
 <input type="submit" value="送信">
 </form>
 </body>

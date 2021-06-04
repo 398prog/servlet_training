@@ -1,25 +1,25 @@
-package chapter04;
+package chapter06;
 
 import java.io.IOException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
- * Servlet implementation class chapter04_01
+ * Servlet implementation class chapter06_03
  */
-@WebServlet("/chapter04_01")
-public class chapter04_01 extends HttpServlet {
+@WebServlet("/chapter06_03")
+public class chapter06_03 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public chapter04_01() {
+    public chapter06_03() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -27,9 +27,24 @@ public class chapter04_01 extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 
+	@SuppressWarnings("deprecation")
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession session =  request.getSession();
+
+		Integer counter = (Integer)session.getAttribute("counter");
+
+		if(counter == null){
+
+			counter = new Integer(0);
+
+		}
+
+		counter++;
+
+		session.setAttribute("counter", counter);
+
+		request.getRequestDispatcher("/jsp/chapter06_03/result.jsp").forward(request, response);
 	}
 
 	/**
@@ -37,8 +52,7 @@ public class chapter04_01 extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		RequestDispatcher rd = request.getRequestDispatcher("/jsp/chapter04_01/02.jsp");
-		rd.forward(request, response);
+		doGet(request, response);
 	}
 
 }
